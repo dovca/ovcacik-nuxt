@@ -1,0 +1,32 @@
+$cBlack:				#000000;
+$cDarkerGray:			#262626;
+$cDarkGray:				#646464;
+$cMediumGray:			#9e9e9e;
+$cLightGray:			#cacaca;
+$cWhite:				#ffffff;
+$cGold:					#d1be85;
+$cOrange:				#efb351;
+$cRose:					#bc3001;
+
+$cPrimary:				$cGold;
+
+$cBackground:			$cBlack;
+$cText:					$cWhite;
+$cHeading:				$cPrimary;
+$cTextHover:			$cPrimary;
+$cTextDark:				$cMediumGray;
+
+$fwLight:				200;
+$fwNormal:				400;
+$fwBold:				600;
+
+$sPageGutter:			1.5rem;
+$sHeaderHeight:			1.5rem + 2*$sPageGutter;
+$sPageShadowHeight:		5rem;
+
+$dTiny:					480px;
+$dPhone:				600px;
+$dTablet:				900px;
+$dDesktop:				1200px;
+
+$tTransition:			300ms;

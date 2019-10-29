@@ -1,55 +1,98 @@
 <template>
-  <div>
-    <nuxt />
-  </div>
+	<div>
+		<nuxt />
+	</div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+	import WebFont from 'webfontloader';
+	import Flags from '@/libs/Flags';
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
+	export default {
+		created() {
+			WebFont.load({
+				google: {
+					families: ['Raleway:200,400,600:latin-ext']
+				},
+				active() {
+					Flags.set('webfontsloaded');
+				}
+			});
+		}
+	};
+</script>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
+<style lang="scss">
+	body {
+		font-family: 'Raleway', sans-serif;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		-webkit-tap-highlight-color: transparent;
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
+		::selection {
+			color: $cGold;
+			background-color: $cDarkGray;
+		}
+	}
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
+	@media screen and (max-width: $dTablet) {
+		html {
+			font-size: 87.5%;
+		}
+	}
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
+	@media screen and (max-width: $dPhone) {
+		html {
+			font-size: 75%;
+		}
+	}
+
+	.page {
+		display: flex;
+		min-height: 100vh;
+		background-color: $cBackground;
+		color: $cText;
+		font-weight: $fwLight;
+
+		&:not(&--no-padding) {
+			padding: $sHeaderHeight+$sPageShadowHeight $sPageGutter*2 $sPageGutter+$sPageShadowHeight;
+		}
+
+		&:not(&--no-bottom-shadow) {
+			padding-bottom: $sPageShadowHeight;
+
+			&:after {
+				content: '';
+				display: block;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: $sPageShadowHeight;
+				background: linear-gradient(to top, $cBlack, transparent);
+			}
+		}
+	}
+
+	.page__title {
+		@include typo(h1);
+		@include line-height(small);
+		@include golden-glow;
+
+		color: $cHeading;
+	}
+
+	.page__content {
+		@include line-height(normal);
+
+		text-align: center;
+		margin: auto;
+	}
+
+	@media screen and (max-width: $dPhone) {
+		.page {
+			&:not(&--no-padding) {
+				padding: $sHeaderHeight+$sPageShadowHeight $sPageGutter $sPageGutter+$sPageShadowHeight;
+			}
+		}
+	}
 </style>

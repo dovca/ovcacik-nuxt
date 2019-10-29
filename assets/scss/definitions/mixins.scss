@@ -1,0 +1,41 @@
+@mixin typo($size) {
+	$fontSizeMultiplier: 1;
+
+	@if $size == h1 {
+		$fontSizeMultiplier: 2.2;
+	} @else if $size == h2 {
+		$fontSizeMultiplier: 1.75;
+	} @else if $size == h3 {
+		$fontSizeMultiplier: 1.5;
+	} @else if $size == h4 {
+		$fontSizeMultiplier: 1.25;
+	} @else if $size == h5 {
+		$fontSizeMultiplier: 1.125;
+	} @else if $size == h6 {
+		$fontSizeMultiplier: 1.05;
+	}
+
+	font-size: $fontSizeMultiplier * 1rem;
+}
+
+@mixin line-height($size) {
+	$lineHeight: 1;
+
+	@if $size == normal {
+		$lineHeight: 1.6em;
+	} @else if $size == small {
+		$lineHeight: 1.2em;
+	} @else if $size == big {
+		$lineHeight: 2em;
+	}
+
+	line-height: $lineHeight;
+}
+
+@mixin golden-glow() {
+	text-shadow: 0 0 0.6em $cHeading;
+}
+
+@mixin glow() {
+	text-shadow: 0 0 0.6em currentColor;
+}
