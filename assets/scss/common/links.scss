@@ -1,0 +1,32 @@
+.link {
+	text-decoration: none;
+	transition: color $tTransition, text-shadow $tTransition;
+
+	&,
+	&:active,
+	&:visited {
+		color: $cText;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: $cTextHover;
+			@include golden-glow;
+		}
+	}
+
+	&--subtle {
+		&,
+		&:active,
+		&:visited {
+			color: $cMediumGray;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				color: $cTextHover;
+				@include golden-glow;
+			}
+		}
+	}
+}
