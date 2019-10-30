@@ -1,6 +1,6 @@
 .link {
 	text-decoration: none;
-	transition: color $tTransition, text-shadow $tTransition;
+	transition: color $tTransitionLeave, text-shadow $tTransitionLeave;
 
 	&,
 	&:active,
@@ -11,6 +11,7 @@
 	@media (hover: hover) {
 		&:hover {
 			color: $cTextHover;
+			transition-duration: $tTransitionEnter;
 			@include golden-glow;
 		}
 	}

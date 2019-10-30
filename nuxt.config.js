@@ -72,4 +72,8 @@ export default {
 		extend(config, ctx) {
 		}
 	},
+
+	router: {
+		linkExactActiveClass: 'link--active',
+	}
 };

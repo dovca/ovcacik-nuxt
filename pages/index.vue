@@ -7,20 +7,8 @@
 				<small>programmer, music enthusiast, food lover</small>
 			</p>
 			<div class="welcome__links">
-				<nuxt-link :to="{ name: 'cv' }" class="welcome__link link link--subtle">
-					<span class="welcome__link-icon icon-cv" />
-				</nuxt-link>
-				<nuxt-link
-					:to="{ name: 'websites' }"
-					class="welcome__link link link--subtle"
-				>
-					<span class="welcome__link-icon icon-websites" />
-				</nuxt-link>
-				<nuxt-link
-					:to="{ name: 'about' }"
-					class="welcome__link link link--subtle"
-				>
-					<span class="welcome__link-icon icon-about" />
+				<nuxt-link v-for="link in links" :key="link" :to="{ name: link }" class="welcome__link link link--subtle">
+					<span class="welcome__link-icon" :class="`icon-${link}`" />
 				</nuxt-link>
 			</div>
 		</div>
@@ -31,8 +19,10 @@
 	import Prob from 'prob.js';
 	import {ShockwaveFilter} from '@pixi/filter-shockwave';
 	import {TimelineMax, ExpoScaleEase, Bounce, Linear, PixiPlugin, _gsScope} from 'gsap/all';
-	import PIXI from '@/libs/PIXI';
-	import Flags from '@/libs/Flags';
+	import PIXI from '~/libs/PIXI';
+	import Flags from '~/libs/Flags';
+	import pageTransitions from '~/mixins/pageTransitions';
+	import config from '~/config';
 
 	const plugins = [PixiPlugin];
 	_gsScope.PIXI = PIXI;
@@ -40,7 +30,13 @@
 	PIXI.utils.skipHello();
 
 	export default {
-		components: {},
+		...pageTransitions,
+
+		computed: {
+			links() {
+				return config.routes.filter((route) => route !== this.$route.name);
+			}
+		},
 
 		mounted() {
 			const initAnimations = () => {
@@ -208,11 +204,8 @@
 
 <style scoped lang="scss">
 	.welcome {
-		&.is-loaded {
-			.welcome__title,
-			.welcome__subtitle {
-				opacity: 1;
-			}
+		&.page-fade-enter-active {
+			transition-duration: 0s;
 		}
 	}
 

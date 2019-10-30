@@ -97,7 +97,11 @@
 </template>
 
 <script>
-	export default {};
+	import pageTransitions from '~/mixins/pageTransitions';
+
+	export default {
+		...pageTransitions
+	};
 </script>
 
 <style scoped lang="scss">
@@ -149,7 +153,6 @@
 	.cv__contact-link {
 		text-decoration: none;
 		color: $cText;
-		transition: color $tTransition, text-shadow $tTransition;
 	}
 
 	.cv__contact-item-icon {

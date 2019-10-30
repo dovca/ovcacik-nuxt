@@ -23,7 +23,11 @@
 </template>
 
 <script>
+	import pageTransitions from '~/mixins/pageTransitions';
+
 	export default {
+		...pageTransitions,
+
 		computed: {
 			websites() {
 				return this.$store.state.websites.list;
