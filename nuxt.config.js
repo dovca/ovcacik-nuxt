@@ -4,14 +4,14 @@ export default {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_name || '',
+		title: 'David Ovčačík',
 		meta: [
 			{charset: 'utf-8'},
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
 			{
 				hid: 'description',
 				name: 'description',
-				content: process.env.npm_package_description || ''
+				content: 'programmer, music enthusiast, food lover'
 			},
 			{name: 'msapplication-tap-highlight', content: 'no'},
 			{name: 'msapplication-TileColor', content: '#000000'},
