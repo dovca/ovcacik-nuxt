@@ -28,6 +28,7 @@
 	import pageTransitions from '~/mixins/pageTransitions';
 
 	export default {
+		name: 'AboutPage',
 		...pageTransitions
 	};
 </script>

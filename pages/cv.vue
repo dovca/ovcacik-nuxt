@@ -100,6 +100,7 @@
 	import pageTransitions from '~/mixins/pageTransitions';
 
 	export default {
+		name: 'CVPage',
 		...pageTransitions
 	};
 </script>

@@ -26,6 +26,7 @@
 	import pageTransitions from '~/mixins/pageTransitions';
 
 	export default {
+		name: 'WebsitesPage',
 		...pageTransitions,
 
 		computed: {

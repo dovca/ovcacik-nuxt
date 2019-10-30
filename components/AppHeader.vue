@@ -18,6 +18,7 @@
 	import config from '~/config';
 
 	export default {
+		name: 'AppHeader',
 		computed: {
 			links() {
 				return config.routes;
