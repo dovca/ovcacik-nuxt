@@ -4,7 +4,7 @@
 		<div class="welcome__content page__content">
 			<h1 ref="title" class="welcome__title page__title">David Ovčačík</h1>
 			<p ref="subtitle" class="welcome__subtitle">
-				small programmer, music enthusiast, food lover
+				<small>programmer, music enthusiast, food lover</small>
 			</p>
 			<div class="welcome__links">
 				<nuxt-link :to="{ name: 'cv' }" class="welcome__link link link--subtle">
@@ -95,9 +95,9 @@
 					const finishPoint = startPoint.add(
 						startPoint.subtract(center).multiply(2)
 					);
-					const duration = 6;
+					const duration = 10;
 					const startScale = 0.2;
-					const finishScale = Math.random() * 0.5 + 0.5;
+					const finishScale = Math.random() * 0.5 + 1.5;
 					const scaleEase = ExpoScaleEase.config(startScale, finishScale);
 
 					const bounds = graphics.getLocalBounds();
@@ -179,7 +179,7 @@
 
 				recalculateWindowSize();
 				renderSnippetGraphics();
-				setInterval(renderSnippetGraphics, 1000);
+				setInterval(renderSnippetGraphics, 2000);
 				setTimeout(setupFilters, 3000);
 			};
 
