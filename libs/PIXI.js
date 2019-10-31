@@ -1,5 +1,8 @@
 import * as PIXI from 'pixi.js';
-import '@/util/pixi-point-functions';
+import {install} from '@pixi/unsafe-eval';
+import '~/util/pixi-point-functions';
+
+install(PIXI);
 
 PIXI.utils.skipHello();
 

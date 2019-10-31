@@ -87,5 +87,11 @@ export default {
 
 	router: {
 		linkExactActiveClass: 'link--active',
+	},
+
+	vue: {
+		config: {
+			devtools: process.env.NODE_ENV !== 'production'
+		}
 	}
 };

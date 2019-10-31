@@ -1,6 +1,6 @@
 import Prob from 'prob.js';
 import {ShockwaveFilter} from '@pixi/filter-shockwave';
-import {TimelineMax, ExpoScaleEase, Bounce, Linear, PixiPlugin, _gsScope} from 'gsap/all';
+import {TimelineMax, ExpoScaleEase, Linear, PixiPlugin, _gsScope} from 'gsap/all';
 import {Random} from 'random-js';
 import PIXI from '~/libs/PIXI';
 

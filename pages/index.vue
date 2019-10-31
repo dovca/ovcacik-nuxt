@@ -16,11 +16,13 @@
 </template>
 
 <script>
-
+	import {TimelineMax, Bounce, Power2, CSSPlugin} from 'gsap/all';
 	import Flags from '~/libs/Flags';
 	import pageTransitions from '~/mixins/pageTransitions';
 	import config from '~/config';
 	import IntroAnimation from '../libs/IntroAnimation';
+
+	const plugins = [CSSPlugin];
 
 	export default {
 		name: 'IndexPage',
@@ -28,7 +30,8 @@
 
 		data() {
 			return {
-				animation: null
+				animation: null,
+				Flags
 			};
 		},
 
