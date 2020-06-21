@@ -9,7 +9,7 @@
 
 			<p class="about__text">
 				Yes, you are indeed in my home. This website is currently running on a pocket-sized
-				computer under my ironing board in the hall. Would you like a coffee? We've run out of cookies though.
+				computer tucked in the corner of my bedroom. Would you like a coffee? We've run out of cookies though.
 			</p>
 
 			<p class="about__text">
