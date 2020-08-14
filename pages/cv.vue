@@ -57,8 +57,8 @@
 						<span class="cv__list-item-text">Isobar - Senior Creative Coder</span>
 					</li>
 					<li class="cv__list-item">
-						<span class="cv__list-item-description">2019&ndash;present</span>
-						<span class="cv__list-item-text">Windy - Senior Developer</span>
+						<span class="cv__list-item-description">2019&ndash;2020</span>
+						<span class="cv__list-item-text">Windy - Software Developer</span>
 					</li>
 				</ol>
 			</section>
