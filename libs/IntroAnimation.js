@@ -1,8 +1,8 @@
 import Prob from 'prob.js';
 import {ShockwaveFilter} from '@pixi/filter-shockwave';
 import {TimelineMax, ExpoScaleEase, Linear, PixiPlugin, _gsScope} from 'gsap/all';
-import {Random} from 'random-js';
 import PIXI from '~/libs/PIXI';
+import {sample} from '~/util/helpers';
 
 const plugins = [PixiPlugin];
 _gsScope.PIXI = PIXI;
@@ -35,11 +35,11 @@ class IntroAnimation {
 	}
 
 	static get randomSnippet() {
-		return IntroAnimation.random.sample(IntroAnimation.snippets, 1);
+		return sample(IntroAnimation.snippets);
 	}
 
 	static get randomColor() {
-		return IntroAnimation.random.sample(IntroAnimation.colors, 1);
+		return sample(IntroAnimation.colors);
 	}
 
 	static get randomFontSize() {
@@ -172,7 +172,5 @@ IntroAnimation.colors = [
 IntroAnimation.snippets = ['alpha: 0', '() => 0', 'new Error(str)', '.reduce((s, v) => v + s)', 'super(options)', 'const timeout = 40', 'c.filters = [filter]', 'typeof path === \'undefined\'', 'switch (type)', 'x: x_TW - y_TH', 'this.data = data', 'g.destroy()', '0xD1BE85', 'return x1 + y1 < x2 + y2', 'resolve()', 'polygon.close()', '.then(fetchStories)', 'arr[idx - 1]', 'window.innerWidth', '0.01, 2, 2', '(to - from + 1)', '-Math.sin(angle)', 'class TileFactory', 'num <<= 1', '!!flag', 'n % mod', '.pop()', 'while (42)', '/^\\d+\\./', 'void 0', '.indexOf(t)', '1 - time / total', 'extends AbstractService', 'import {config}', 'a = (t < b) & m', 'i = -i', '!true', 'cnt++', 'SyntaxError', '\'not a function\'', '\'data of undefined\'', 'new Promise', 'console.log(val)', '.getContext(\'2d\')', 'let scale;', 'break;', '...args', 't1p && t2p', 'path: \'/:lang\'', 'ENV.server', '\'jquery.min.js\'', '\'js/common.js\'', 'c = s + c', '.catch((error) => {', 'if (!token)', 'return null;', 'this.data.actions.forEach', 'progress *= this.length()', 'w1.distance(w2)', 'this.start().clone()', 'bowser.mobile', 'owner: object', 'name instanceof RegExp', 'match.slice(1)', 'el = el[0]', 'cbQueue.remove(h)', 'fallback()', 'base.height * 1.5', 'onComplete: callback', 'e.preventDefault();', 'enumerable: true', 'Object.keys(obj)', 'other.b - this.b', 'NaN', '.splice(index, 1)', 'throw new Error', '\'deprecated\'', '\'Slow network\'', '!document.hidden', 'c.split(\'=\', 1)[0]', 'd.getTime() + exp', 'd.toGMTString()', 'this._flags.dirty', '(a, b) => a - b', 'isNaN(numeric)', '$(document)', '0xAAAAAAAA', '1e-9', 'await fetchCodes()', 'debugger;'];
 
 IntroAnimation.prob = Prob.normal(0, 1);
-
-IntroAnimation.random = new Random();
 
 export default IntroAnimation;
