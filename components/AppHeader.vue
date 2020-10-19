@@ -5,6 +5,7 @@
 				v-for="link in links"
 				:key="link"
 				:to="{name: link}"
+				:title="link"
 				class="header__link link link--subtle"
 			>
 				<span :class="`icon-${link}`" />

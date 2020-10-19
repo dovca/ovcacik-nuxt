@@ -1,10 +1,14 @@
 export default {
-	mode: 'spa',
+	ssr: false,
+	target: 'static',
 	/*
 	 ** Headers of the page
 	 */
 	head: {
 		title: 'David Ovčačík',
+		htmlAttrs: {
+			lang: 'en'
+		},
 		meta: [
 			{charset: 'utf-8'},
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},

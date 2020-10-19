@@ -7,7 +7,7 @@
 				<small>programmer, music enthusiast, food lover</small>
 			</p>
 			<div class="welcome__links">
-				<nuxt-link v-for="link in links" :key="link" :to="{ name: link }" class="welcome__link link link--subtle">
+				<nuxt-link v-for="link in links" :key="link" :to="{ name: link }" :title="link" class="welcome__link link link--subtle">
 					<span class="welcome__link-icon" :class="`icon-${link}`" />
 				</nuxt-link>
 			</div>
@@ -122,9 +122,5 @@
 
 	.welcome__link-icon {
 		font-size: 2rem;
-	}
-
-	.welcome__link-text {
-		display: none;
 	}
 </style>
