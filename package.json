@@ -1,63 +1,65 @@
 {
-  "name": "ovcacik-nuxt",
-  "version": "1.0.0",
-  "description": "My personal webpage",
-  "author": "David Ovčačík",
-  "private": true,
-  "scripts": {
-    "dev": "HOST=0.0.0.0 nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
-  },
-  "lint-staged": {
-    "*.{js,vue}": "eslint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "dependencies": {
-    "@mdi/js": "^4.9.95",
-    "@nuxtjs/axios": "^5.12.2",
-    "@nuxtjs/device": "^1.2.7",
-    "@nuxtjs/pwa": "^3.2.2",
-    "@nuxtjs/style-resources": "^1.0.0",
-    "@pixi/filter-shockwave": "^3.1.1",
-    "@pixi/unsafe-eval": "^5.3.3",
-    "eventemitter3": "^4.0.7",
-    "gsap": "^2.1.3",
-    "nuxt": "^2.14.7",
-    "pixi.js": "^5.3.3",
-    "prob.js": "^1.0.6",
-    "random-js": "^2.1.0",
-    "webfontloader": "^1.6.28"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
-    "@nuxtjs/eslint-config": "^1.0.1",
-    "@nuxtjs/eslint-module": "^1.2.0",
-    "@nuxtjs/vuetify": "^1.11.2",
-    "@vue/test-utils": "^1.1.0",
-    "babel-eslint": "^10.1.0",
-    "bourbon": "^6.0.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-nuxt": "^1.0.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-promise": ">=4.0.1",
-    "eslint-plugin-standard": ">=4.0.0",
-    "eslint-plugin-vue": "^5.2.2",
-    "husky": "^2.6.0",
-    "lint-staged": "^8.2.1",
-    "prettier": "^1.19.1"
-  }
+	"name": "ovcacik-nuxt",
+	"version": "1.0.0",
+	"description": "My personal webpage",
+	"author": "David Ovčačík",
+	"private": true,
+	"scripts": {
+		"dev": "HOST=0.0.0.0 nuxt",
+		"build": "nuxt build",
+		"start": "nuxt start",
+		"generate": "nuxt generate",
+		"lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+		"deploy:staging": "scp -r dist/* deploy@ovcacik.xyz:/var/www/ovcacik-nuxt/staging",
+		"deploy:production": "scp -r dist/* deploy@ovcacik.xyz:/var/www/ovcacik-nuxt/production"
+	},
+	"lint-staged": {
+		"*.{js,vue}": "eslint"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"dependencies": {
+		"@mdi/js": "^4.9.95",
+		"@nuxtjs/axios": "^5.12.2",
+		"@nuxtjs/device": "^1.2.7",
+		"@nuxtjs/pwa": "^3.2.2",
+		"@nuxtjs/style-resources": "^1.0.0",
+		"@pixi/filter-shockwave": "^3.1.1",
+		"@pixi/unsafe-eval": "^5.3.3",
+		"eventemitter3": "^4.0.7",
+		"gsap": "^2.1.3",
+		"nuxt": "^2.14.7",
+		"pixi.js": "^5.3.3",
+		"prob.js": "^1.0.6",
+		"random-js": "^2.1.0",
+		"webfontloader": "^1.6.28"
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-optional-chaining": "^7.12.1",
+		"@nuxtjs/eslint-config": "^1.0.1",
+		"@nuxtjs/eslint-module": "^1.2.0",
+		"@nuxtjs/vuetify": "^1.11.2",
+		"@vue/test-utils": "^1.1.0",
+		"babel-eslint": "^10.1.0",
+		"bourbon": "^6.0.0",
+		"eslint": "^6.8.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-config-prettier": "^4.1.0",
+		"eslint-config-standard": "^14.1.1",
+		"eslint-loader": "^2.1.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^24.1.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-nuxt": "^1.0.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-promise": ">=4.0.1",
+		"eslint-plugin-standard": ">=4.0.0",
+		"eslint-plugin-vue": "^5.2.2",
+		"husky": "^2.6.0",
+		"lint-staged": "^8.2.1",
+		"prettier": "^1.19.1"
+	}
 }
