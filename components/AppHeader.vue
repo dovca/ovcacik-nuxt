@@ -14,7 +14,7 @@
 </template>
 
 <script>
-	import {TweenMax} from 'gsap/all';
+	import TweenMax from 'gsap/TweenMax';
 	import config from '~/config';
 
 	export default {
