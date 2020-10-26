@@ -35,6 +35,10 @@ export default {
 					url: 'https://henrikandfriends.club'
 				},
 				{
+					title: 'Josefina Bakošová',
+					url: 'https://josefinabakosova.com'
+				},
+				{
 					title: 'Krušovice MS Hokej 2019',
 					url: null
 				},
