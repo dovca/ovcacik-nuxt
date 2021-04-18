@@ -22,7 +22,6 @@
 		}
 	},
 	"dependencies": {
-		"@mdi/js": "^4.9.95",
 		"@nuxtjs/axios": "^5.12.2",
 		"@nuxtjs/device": "^1.2.7",
 		"@nuxtjs/pwa": "^3.2.2",
@@ -38,6 +37,7 @@
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-optional-chaining": "^7.12.1",
+		"@nuxt/types": "^2.14.0",
 		"@nuxtjs/eslint-config": "^1.0.1",
 		"@nuxtjs/eslint-module": "^1.2.0",
 		"@nuxtjs/vuetify": "^1.11.2",
