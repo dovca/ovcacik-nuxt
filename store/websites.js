@@ -28,7 +28,7 @@ export default {
 				},
 				{
 					title: 'Golem VR',
-					url: 'https://golemvr.cz'
+					url: null
 				},
 				{
 					title: 'Henrik the artist',
@@ -47,6 +47,10 @@ export default {
 					url: null
 				},
 				{
+					title: 'Punkkilive',
+					url: 'https://punkkilive.fi'
+				},
+				{
 					title: 'Sazka Poslední lístek',
 					url: null
 				},
@@ -56,7 +60,7 @@ export default {
 				},
 				{
 					title: 'Sunar CZ/SK',
-					url: 'https://sunar.cz'
+					url: null
 				},
 				{
 					title: 'Škoda Octavia FL',
