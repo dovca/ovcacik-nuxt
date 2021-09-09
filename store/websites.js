@@ -35,6 +35,10 @@ export default {
 					url: 'https://henrikandfriends.club'
 				},
 				{
+					title: 'J&T Art Index',
+					url: 'https://artindexpopup.cz'
+				},
+				{
 					title: 'Josefina Bakošová',
 					url: 'https://josefinabakosova.com'
 				},
@@ -56,7 +60,7 @@ export default {
 				},
 				{
 					title: 'Sazka Stírací losy',
-					url: 'https://stiracilosy.cz'
+					url: null,
 				},
 				{
 					title: 'Sunar CZ/SK',

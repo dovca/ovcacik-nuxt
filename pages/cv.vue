@@ -60,6 +60,10 @@
 						<span class="cv__list-item-description">2019&ndash;2020</span>
 						<span class="cv__list-item-text">Windy - Software Developer</span>
 					</li>
+					<li class="cv__list-item">
+						<span class="cv__list-item-description">2021&ndash;present</span>
+						<span class="cv__list-item-text">Apploud - Senior Frontend Developer</span>
+					</li>
 				</ol>
 			</section>
 
