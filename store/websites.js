@@ -24,7 +24,7 @@ export default {
 				},
 				{
 					title: 'Avast Technology',
-					url: 'https://avast.com/technology'
+					url: null,
 				},
 				{
 					title: 'Golem VR',
@@ -33,6 +33,10 @@ export default {
 				{
 					title: 'Henrik the artist',
 					url: 'https://henrikandfriends.club'
+				},
+				{
+					title: 'J&T Arch Investments',
+					url: 'https://jtarchinvestments.cz'
 				},
 				{
 					title: 'J&T Art Index',
@@ -45,6 +49,14 @@ export default {
 				{
 					title: 'Krušovice MS Hokej 2019',
 					url: null
+				},
+				{
+					title: 'Na Horu',
+					url: 'https://nahoru.art'
+				},
+				{
+					title: 'Oscar Massin',
+					url: 'https://oscarmassin.com'
 				},
 				{
 					title: 'Ozvěny budoucnosti',
