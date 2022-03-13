@@ -1,18 +1,19 @@
 import Prob from 'prob.js';
 import {ShockwaveFilter} from '@pixi/filter-shockwave';
-import {gsap} from "gsap";
+import {BlurFilter} from '@pixi/filter-blur';
+import {gsap} from 'gsap';
 import {ExpoScaleEase} from 'gsap/EasePack';
-import {PixiPlugin} from 'gsap/PixiPlugin';
-import * as PIXI from '~/libs/PIXI';
+import {Application} from '@pixi/app';
+import {Container} from '@pixi/display';
+import {Text} from '@pixi/text';
+import {Rectangle} from '@pixi/math';
 import {sample} from '~/util/helpers';
-
-gsap.registerPlugin(PixiPlugin);
-PixiPlugin.registerPIXI(PIXI);
+import Point from '~/util/pixi-point';
 
 class IntroAnimation {
 	static createSnippetGraphics() {
-		const container = new PIXI.Container();
-		const text = new PIXI.Text(
+		const container = new Container();
+		const text = new Text(
 			IntroAnimation.randomSnippet,
 			{
 				fontFamily: 'Raleway',
@@ -22,7 +23,7 @@ class IntroAnimation {
 		);
 		text.alpha = 0.1;
 
-		const filter = new PIXI.filters.BlurFilter(0.001, 2, 2);
+		const filter = new BlurFilter(0.001, 2, 2);
 		filter.padding = 100;
 
 		container.filters = [filter];
@@ -33,7 +34,7 @@ class IntroAnimation {
 	static get randomPosition() {
 		const randX = IntroAnimation.prob() / 4 * window.innerWidth / 2 + window.innerWidth / 2;
 		const randY = IntroAnimation.prob() / 4 * window.innerHeight / 2 + window.innerHeight / 2;
-		return new PIXI.Point(randX, randY);
+		return new Point(randX, randY);
 	}
 
 	static get randomSnippet() {
@@ -49,8 +50,8 @@ class IntroAnimation {
 	}
 
 	constructor(canvas) {
-		this.application = new PIXI.Application({
-			view: canvas
+		this.application = new Application({
+			view: canvas,
 		});
 		this.center = null;
 		this.shockwaveFilter = null;
@@ -77,7 +78,8 @@ class IntroAnimation {
 		graphics.position.copyFrom(startPoint);
 
 		const finishPoint = startPoint.add(
-			startPoint.subtract(this.center).multiply(2)
+			startPoint.subtract(this.center)
+				.multiply(2)
 		);
 		const duration = 10;
 		const startScale = 0.2;
@@ -137,7 +139,7 @@ class IntroAnimation {
 			speed: 400
 		});
 
-		this.application.stage.filterArea = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
+		this.application.stage.filterArea = new Rectangle(0, 0, window.innerWidth, window.innerHeight);
 		this.application.stage.filters = [this.shockwaveFilter];
 
 		this.application.ticker.add(() => {
@@ -148,9 +150,9 @@ class IntroAnimation {
 	}
 
 	recalculateWindowSize() {
-		this.center = new PIXI.Point(window.innerWidth / 2, window.innerHeight / 2);
+		this.center = new Point(window.innerWidth / 2, window.innerHeight / 2);
 		this.application.renderer.resize(window.innerWidth, window.innerHeight);
-		this.application.stage.filterArea = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
+		this.application.stage.filterArea = new Rectangle(0, 0, window.innerWidth, window.innerHeight);
 
 		if (this.shockwaveFilter) {
 			this.shockwaveFilter.center = this.center;

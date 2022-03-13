@@ -50,7 +50,9 @@ export default {
 	/*
 	 ** Plugins to load before mounting the App
 	 */
-	plugins: [],
+	plugins: [
+		'@/plugins/pixi.js',
+	],
 	/*
 	 ** Nuxt.js dev-modules
 	 */
@@ -111,6 +113,7 @@ export default {
 		},
 
 		extend(config, ctx) {
+			config.performance.maxAssetSize = 300000;
 		}
 	},
 
