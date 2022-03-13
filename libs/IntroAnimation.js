@@ -1,11 +1,13 @@
 import Prob from 'prob.js';
 import {ShockwaveFilter} from '@pixi/filter-shockwave';
-import {TimelineMax, ExpoScaleEase, Linear, PixiPlugin, _gsScope} from 'gsap/all';
+import {gsap} from "gsap";
+import {ExpoScaleEase} from 'gsap/EasePack';
+import {PixiPlugin} from 'gsap/PixiPlugin';
 import PIXI from '~/libs/PIXI';
 import {sample} from '~/util/helpers';
 
-const plugins = [PixiPlugin];
-_gsScope.PIXI = PIXI;
+gsap.registerPlugin(PixiPlugin);
+PixiPlugin.registerPIXI(PIXI);
 
 class IntroAnimation {
 	static createSnippetGraphics() {
@@ -88,7 +90,7 @@ class IntroAnimation {
 			bounds.height * (1 - finishPoint.y / window.innerHeight)
 		);
 
-		return new TimelineMax({
+		return gsap.timeline({
 			onComplete() {
 				graphics.filters = null;
 				graphics.destroy();
@@ -96,21 +98,23 @@ class IntroAnimation {
 		})
 			.set(graphics, {pixi: {scale: startScale}})
 			.addLabel('move')
-			.from(graphics, 3, {alpha: 0}, 'move')
-			.to(graphics, duration, {
+			.from(graphics, {alpha: 0, duration: 3}, 'move')
+			.to(graphics, {
 				pixi: {
 					x: finishPoint.x,
 					y: finishPoint.y,
 					scale: finishScale,
 				},
+				duration,
 				ease: scaleEase
 			}, 'move')
 			.addLabel('fadeOut', '-=3')
-			.to(graphics, 3, {alpha: 0}, 'fadeOut')
-			.to(graphics.filters[0], 3, {
+			.to(graphics, {alpha: 0, duration: 3}, 'fadeOut')
+			.to(graphics.filters[0], {
 				blur: 10,
-				ease: Linear.easeNone,
-				immediateRender: false
+				ease: 'none',
+				immediateRender: false,
+				duration: 3,
 			}, 'fadeOut');
 	}
 
@@ -143,7 +147,7 @@ class IntroAnimation {
 		});
 	}
 
-	recalculateWindowSize = () => {
+	recalculateWindowSize() {
 		this.center = new PIXI.Point(window.innerWidth / 2, window.innerHeight / 2);
 		this.application.renderer.resize(window.innerWidth, window.innerHeight);
 		this.application.stage.filterArea = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
@@ -151,7 +155,7 @@ class IntroAnimation {
 		if (this.shockwaveFilter) {
 			this.shockwaveFilter.center = this.center;
 		}
-	};
+	}
 
 	destroy() {
 		this.application.destroy();

@@ -7,7 +7,13 @@
 				<small>programmer, music enthusiast, food lover</small>
 			</p>
 			<div class="welcome__links">
-				<nuxt-link v-for="link in links" :key="link" :to="{ name: link }" :title="link" class="welcome__link link link--subtle">
+				<nuxt-link
+					v-for="link in links"
+					:key="link"
+					:to="{ name: link }"
+					:title="link"
+					class="welcome__link link link--subtle"
+				>
 					<span class="welcome__link-icon" :class="`icon-${link}`" />
 				</nuxt-link>
 			</div>
@@ -16,13 +22,11 @@
 </template>
 
 <script>
-	import {TimelineMax, Bounce, Power2, CSSPlugin} from 'gsap/all';
+	import {gsap} from 'gsap';
 	import Flags from '~/libs/Flags';
 	import pageTransitions from '~/mixins/pageTransitions';
 	import config from '~/config';
-	import IntroAnimation from '../libs/IntroAnimation';
-
-	const plugins = [CSSPlugin];
+	import IntroAnimation from '~/libs/IntroAnimation';
 
 	export default {
 		name: 'IndexPage',
@@ -31,7 +35,6 @@
 		data() {
 			return {
 				animation: null,
-				Flags
 			};
 		},
 
@@ -59,14 +62,24 @@
 				const {container, title, subtitle} = this.$refs;
 				const links = container.querySelectorAll('.welcome__link');
 
-				const tl = new TimelineMax()
-					.fromTo(title, 1, {opacity: 0, y: -60}, {opacity: 1, y: 0, ease: Bounce.easeOut}, 0)
-					.fromTo(subtitle, 1, {opacity: 0, y: 100}, {opacity: 1, y: 0, ease: Bounce.easeOut}, 0)
-					.staggerFromTo(links, 1, {opacity: 0, yPercent: 50}, {
-						opacity: 1,
-						yPercent: 0,
-						ease: Power2.easeOut
-					}, 0.2);
+				const tl = gsap
+					.timeline()
+					.fromTo(
+						title,
+						{opacity: 0, y: -60},
+						{opacity: 1, y: 0, ease: 'bounce.out', duration: 1},
+					)
+					.fromTo(
+						subtitle,
+						{opacity: 0, y: 100},
+						{opacity: 1, y: 0, ease: 'bounce.out', duration: 1},
+						'<',
+					)
+					.fromTo(
+						links,
+						{opacity: 0, yPercent: 50},
+						{opacity: 1, yPercent: 0, ease: 'power2.out', duration: 1, stagger: 0.2},
+					);
 
 				if (!this.$device.isMobileOrTablet) {
 					tl.add(() => {

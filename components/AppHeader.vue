@@ -15,7 +15,7 @@
 </template>
 
 <script>
-	import TweenMax from 'gsap/TweenMax';
+	import {gsap} from "gsap";
 	import config from '~/config';
 
 	export default {
@@ -33,12 +33,10 @@
 				return;
 			}
 
-			TweenMax.staggerFromTo(
+			gsap.fromTo(
 				headerLinks,
-				0.6,
 				{yPercent: 25, opacity: 0},
-				{yPercent: 0, opacity: 1, ease: Power2.easeOut},
-				0.2
+				{yPercent: 0, opacity: 1, ease: 'powr2.out', duration: 0.6, stagger: 0.2},
 			);
 		}
 	};

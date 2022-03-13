@@ -29,14 +29,14 @@
 		name: 'WebsitesPage',
 		...pageTransitions,
 
+		fetch({store}) {
+			return store.dispatch('websites/fetch');
+		},
+
 		computed: {
 			websites() {
 				return this.$store.state.websites.list;
 			}
-		},
-
-		fetch({store}) {
-			return store.dispatch('websites/fetch');
 		},
 	};
 </script>

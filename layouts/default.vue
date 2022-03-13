@@ -13,6 +13,7 @@
 	import AppHeader from '~/components/AppHeader';
 
 	export default {
+		name: 'DefaultLayout',
 		components: {AppHeader},
 
 		computed: {
