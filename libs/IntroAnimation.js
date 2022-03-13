@@ -3,7 +3,7 @@ import {ShockwaveFilter} from '@pixi/filter-shockwave';
 import {gsap} from "gsap";
 import {ExpoScaleEase} from 'gsap/EasePack';
 import {PixiPlugin} from 'gsap/PixiPlugin';
-import PIXI from '~/libs/PIXI';
+import * as PIXI from '~/libs/PIXI';
 import {sample} from '~/util/helpers';
 
 gsap.registerPlugin(PixiPlugin);

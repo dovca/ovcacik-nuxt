@@ -1,9 +1,31 @@
-import * as PIXI from 'pixi.js';
+import {
+	VERSION,
+	utils,
+	filters,
+	Container,
+	Text,
+	Point,
+	Rectangle,
+	Graphics,
+	DisplayObject,
+	Application,
+	ShaderSystem
+} from 'pixi.js';
 import {install} from '@pixi/unsafe-eval';
 import '~/util/pixi-point-functions';
 
-install(PIXI);
+install({ShaderSystem});
 
-PIXI.utils.skipHello();
+utils.skipHello();
 
-export default PIXI;
+export {
+	VERSION,
+	filters,
+	Container,
+	Text,
+	Point,
+	Rectangle,
+	Application,
+	Graphics,
+	DisplayObject,
+};
