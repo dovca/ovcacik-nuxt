@@ -21,10 +21,6 @@
 				<h2 class="cv__block-heading">education</h2>
 				<ol class="cv__list">
 					<li class="cv__list-item">
-						<span class="cv__list-item-description">2005&ndash;2013</span>
-						<span class="cv__list-item-text">Gymnázium Nad Kavalírkou</span>
-					</li>
-					<li class="cv__list-item">
 						<span class="cv__list-item-description">2013&ndash;2017</span>
 						<span class="cv__list-item-text">
 							FIT ČVUT v Praze - Computer Engineering - Bachelor's degree
