@@ -17,6 +17,11 @@ export default {
 				name: 'description',
 				content: 'programmer, music enthusiast, food lover'
 			},
+			{
+				hid: 'keywords',
+				name: 'keywords',
+				content: 'David Ovčačík, Praha, programátor, kodér, javascript'
+			},
 			{name: 'msapplication-tap-highlight', content: 'no'},
 			{name: 'msapplication-TileColor', content: '#000000'},
 			{name: 'msapplication-TileImage', content: '/mstile-144x144.png'},
