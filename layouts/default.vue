@@ -25,7 +25,7 @@
 		created() {
 			WebFont.load({
 				google: {
-					families: ['Raleway:200,400:latin-ext']
+					families: ['Raleway:200,400:latin-ext&display=swap']
 				},
 				active() {
 					Flags.set('webfontsloaded');

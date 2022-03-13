@@ -56,7 +56,8 @@ export default {
 	 */
 	buildModules: [
 		// Doc: https://github.com/nuxt-community/eslint-module
-		'@nuxtjs/eslint-module'
+		'@nuxtjs/eslint-module',
+		'@nuxtjs/svg',
 	],
 	/*
 	 ** Nuxt.js modules
@@ -114,6 +115,7 @@ export default {
 	},
 
 	router: {
+		trailingSlash: true,
 		linkExactActiveClass: 'link--active',
 	},
 

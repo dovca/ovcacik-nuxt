@@ -75,7 +75,19 @@
 							class="cv__contact-link link"
 						>
 							<span class="cv__contact-item-text">david@ovcacik.xyz</span>
-							<span class="cv__contact-item-icon icon-email" />
+							<IconEmail class="cv__contact-item-icon" />
+						</a>
+					</li>
+					<li class="cv__contact-item">
+						<a
+							href="https://facebook.com/sheepdave"
+							title="Facebook"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="cv__contact-link link"
+						>
+							<span class="cv__contact-item-text">https://facebook.com/sheepdave</span>
+							<IconFacebook class="cv__contact-item-icon" />
 						</a>
 					</li>
 					<li class="cv__contact-item">
@@ -87,7 +99,7 @@
 							class="cv__contact-link link"
 						>
 							<span class="cv__contact-item-text">linkedin.com/in/david-ovčačík-a94360b2</span>
-							<span class="cv__contact-item-icon icon-linkedin" />
+							<IconLinkedIn class="cv__contact-item-icon" />
 						</a>
 					</li>
 				</ul>
@@ -99,9 +111,18 @@
 <script>
 	import pageTransitions from '~/mixins/pageTransitions';
 
+	const IconEmail = () => import('@/assets/icons/email.svg?inline');
+	const IconFacebook = () => import('@/assets/icons/facebook.svg?inline');
+	const IconLinkedIn = () => import('@/assets/icons/linkedin.svg?inline');
+
 	export default {
 		name: 'CVPage',
-		...pageTransitions
+		components: {
+			IconLinkedIn,
+			IconFacebook,
+			IconEmail,
+		},
+		...pageTransitions,
 	};
 </script>
 
@@ -153,7 +174,6 @@
 
 	.cv__contact-link {
 		text-decoration: none;
-		color: $cText;
 	}
 
 	.cv__contact-item-icon {

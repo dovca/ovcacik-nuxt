@@ -8,7 +8,7 @@
 				:title="link"
 				class="header__link link link--subtle"
 			>
-				<span :class="`icon-${link}`" />
+				<component :is="iconMapping[link]" />
 			</nuxt-link>
 		</nav>
 	</header>
@@ -18,8 +18,29 @@
 	import {gsap} from "gsap";
 	import config from '~/config';
 
+	const IconIndex = () => import('@/assets/icons/index.svg?inline');
+	const IconWebsites = () => import('@/assets/icons/websites.svg?inline');
+	const IconCV = () => import('@/assets/icons/cv.svg?inline');
+	const IconAbout = () => import('@/assets/icons/about.svg?inline');
+
 	export default {
 		name: 'AppHeader',
+		components: {
+			IconIndex,
+			IconWebsites,
+			IconCV,
+			IconAbout,
+		},
+		data() {
+			return {
+				iconMapping: {
+					index: IconIndex,
+					websites: IconWebsites,
+					cv: IconCV,
+					about: IconAbout,
+				},
+			};
+		},
 		computed: {
 			links() {
 				return config.routes;

@@ -14,7 +14,7 @@
 					:title="link"
 					class="welcome__link link link--subtle"
 				>
-					<span class="welcome__link-icon" :class="`icon-${link}`" />
+					<component :is="iconMapping[link]" />
 				</nuxt-link>
 			</div>
 		</div>
@@ -28,13 +28,26 @@
 	import config from '~/config';
 	import IntroAnimation from '~/libs/IntroAnimation';
 
+	const IconWebsites = () => import('@/assets/icons/websites.svg?inline');
+	const IconCV = () => import('@/assets/icons/cv.svg?inline');
+	const IconAbout = () => import('@/assets/icons/about.svg?inline');
+
 	export default {
 		name: 'IndexPage',
 		...pageTransitions,
-
+		components: {
+			IconWebsites,
+			IconCV,
+			IconAbout,
+		},
 		data() {
 			return {
 				animation: null,
+				iconMapping: {
+					websites: IconWebsites,
+					cv: IconCV,
+					about: IconAbout,
+				},
 			};
 		},
 
@@ -125,15 +138,12 @@
 	.welcome__links {
 		display: flex;
 		justify-content: center;
-		margin-top: 0.5em;
+		margin-top: 0.5rem;
 	}
 
 	.welcome__link {
-		padding: 0 0.5em;
-		opacity: 0;
-	}
-
-	.welcome__link-icon {
+		padding: 0 0.5rem;
 		font-size: 2rem;
+		opacity: 0;
 	}
 </style>
